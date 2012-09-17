@@ -1,0 +1,155 @@
+*
+{
+  box-sizing: border-box;
+}
+
+body
+{
+  padding: 50px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5em;
+  color: #303030;
+  background: #f0f0f0;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+#sidebar
+{
+  overflow: scroll;
+  position: fixed;
+  padding: 50px 25px;
+  top: 0;
+  left: -225px;
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid #303030;
+  line-height: 1.5em;
+  background: #303030;
+  color: #f0f0f0;
+  text-shadow: 0 1px 0 #000000;
+  font-family: Helvetica, sans-serif;
+
+  -webkit-box-shadow:inset -10px 10px 60px 0px #222;
+  box-shadow: inset -10px 10px 60px 0px #222;
+
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#sidebar:hover, #sidebar.hover
+{
+  left: 0;
+}
+
+#sidebar:hover + #container, #sidebar.hover + #container
+{
+  margin-left: 250px;
+}
+
+#sidebar #menu, #toc
+{
+  margin-bottom:1em;
+}
+
+#sidebar a
+{
+  color: #f0f0f0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#sidebar ul
+{
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar li
+{
+  list-style: none;
+}
+
+#sidebar #sign
+{
+  padding: 40px 0 0;
+  line-height: 70px;
+  font-size: 100px;
+  text-align: center;
+  color: #2a2a2a;
+  text-shadow: 0 -1px 0 #252525;
+}
+
+#sidebar li.toc-H3
+{
+  padding-left: 1em;
+}
+#sidebar span.title 
+{
+  color: #ff0000;
+  font-weight: bold;
+}
+#sidebar .toc-H3 a
+{
+  color: #B1B1B1;
+}
+
+/* - Semi responsive container - */
+/* - Also for IE5.5+ - */
+#container
+{
+  margin-left: 25px;
+  max-width: 500px;
+  width: auto !important;
+  width: 500px;
+
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  margin: 2em 0 0;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.5em;
+}
+
+h1
+{
+  margin: 0;
+}
+
+h1 + h2,h2 + h3,h3 + h4,h4 + h5,h5 + h6
+{
+  margin: 1em 0 0;
+}
+
+h1
+{
+  font-size: 3.2em;
+}
+
+h2
+{
+  font-size: 2.4em;
+}
+
+h3
+{
+  font-size: 1.8em;
+}
+
+h4
+{
+  font-size: 1.4em;
+}
+
+h5
+{
+  font-size: 1.2em;
+}
