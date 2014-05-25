@@ -1,12 +1,20 @@
 // This file is for..
 var docs =
   {
-    TestDocument: {                   // Document Url
-      dir: "docs/",                     // Offset directory (trailing slash)
+    Methamorphosis: {                   // Document Url
+      dir: "docs/metamorphosis/",      // Offset directory (don't forget trailing slash!)
       files: [                          // Files to include (without dir)
-        "test document 1.markdown",
-        "test document 2.markdown",
+        "chapterone.markdown",
+        "chaptertwo.markdown"
       ],
-      title: "Test Document"          // Title of Document
+      title: "Metamorphosis"          // Title of Document
+    },
+    MobyDick: {                   // Document Url
+      dir: "docs/mobydick/",      // Offset directory (don't forget trailing slash!)
+      files: [                          // Files to include (without dir)
+        "loomings.markdown",
+        "thecarpetbag.markdown"
+      ],
+      title: "Moby Dick"          // Title of Document
     }
   }

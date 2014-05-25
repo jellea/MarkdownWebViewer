@@ -6,11 +6,10 @@ var is_loading = false;
 
 var hashGo = function()
 {
-  console.log("hashgo: "+ window.location.hash);
   if (window.location.hash === "") {
-    for (firstdoc in docs) break;
+    for (var firstdoc in docs) break;
     switchPage(firstdoc);
-  } else {
+  } else if(window.location.hash.match('#/')) {
     switchPage(window.location.hash.replace("#/",""));
   }
 };
@@ -18,6 +17,9 @@ var hashGo = function()
 var switchPage = function(pagekey)
 {
   is_loading = true;
+
+  NProgress.start();
+
   page = docs[pagekey];
   pagecontent = [];
   for (file in page.files)
@@ -27,6 +29,7 @@ var switchPage = function(pagekey)
       $.ajax({
         url: page.dir + page.files[file],
         success: function(data) {
+          NProgress.inc(1/page.files.length);
           pagecontent[file] = converter.makeHtml(data);
         }
       });
@@ -36,7 +39,6 @@ var switchPage = function(pagekey)
 
 var makeTOC = function()
 {
-  console.log('make TOC!');
   var titles = ['<li><span class="title">Table of Contents</span>'];
 
   $("h2,h3").each(function()
@@ -54,7 +56,6 @@ var makeTOC = function()
 
 var makeMenu = function()
 {
-  console.log('make Menu!');
   items=['<li><span class="title">Documents</strong></li>'];
 
   $.each(docs, function(key, val)
@@ -82,17 +83,16 @@ $(document).ready(function()
     {
       is_loading = false;
 
-      console.log('All calls done, load page!');
+      NProgress.done();
+
       $('#container').html('<h1>' + page.title + '</h1>' + pagecontent.join(''));
       makeTOC();
     }
     else
     {
-      console.log('AJAX finished while loader was not active.');
     }
   });
 
-  // Run bitch!
   hashGo();
   makeMenu();
 });
