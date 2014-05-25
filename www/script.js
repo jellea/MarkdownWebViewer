@@ -29,6 +29,7 @@ var switchPage = function(pagekey)
       $.ajax({
         url: page.dir + page.files[file],
         success: function(data) {
+          document.title = page.title;
           NProgress.inc(1/page.files.length);
           pagecontent[file] = converter.makeHtml(data);
         }
